@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+    <title>מחשבון משכנתא</title>
+</head>
+
+<body>
+
+    <script>
+        function eachPayback(keren, tkufa, ribit, tikra) {
+            return (keren * (1 + ribit)) / tkufa;
+        }
+
+        function checkMASH() {
+            let keren = document.getElementById('keren').value;
+            let tkufa = document.getElementById('tkufa').value;
+            tkufa *= 12;
+            let ribit = (document.getElementById('ribit').value) / 100;
+            let tikra = document.getElementById('tikra').value;
+            document.getElementById('result').innerHTML =
+                'כל תשלום יהיה על סך: ' + eachPayback(keren, tkufa, ribit, tikra) + '₪ </br>' + ((keren * (1 + ribit)) /
+                    tkufa > tikra ? 'סכום גבוה, תנסה להקטין את הקרן או תגדיל את התקופה' : ' הסכום נמוך, הינך יכול לשלם אותו');
+
+        }
+    </script>
+    <h1>משכנתקולייטור</h1>
+    <input type="text" id="keren" placeholder="?כמה אתה צריך">
+    <input type="text" id="tkufa" placeholder="?לכמה שנים לפרוס">
+    <input type="text" id="tikra" placeholder="?כמה תוכל להחזיר">
+    </br>
+    ריבית [באחוזים] <input type="text" id="ribit" value="3.5">
+    <button type="button" onclick="checkMASH()">
+        חשב </button>
+    <p id="result">הזן נתונים והקלק "חשב"</p>
+
+
+</body>
+
+</html>
